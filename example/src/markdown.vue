@@ -1,4 +1,4 @@
-
+<template lang="md">
 # Hello
 
 `<span>{{sss}}</span>`
@@ -44,17 +44,6 @@ Vue.config.debug = true
 </template>
 ```
 
-<style scoped>
-  .abc {
-    background-color: yellow;
-  }
-</style>
-
-<style scoped>
-  .abc {
-    background-color: yellow;
-  }
-</style>
 
 <div>
 </div>
@@ -70,6 +59,7 @@ sadfsfs
 ```html
 <compo>{{model }}{{model }}{{model }}{{model }}{{ model }}</compo>
 ```
+</template>
 
 <script>
   module.exports = {
@@ -92,3 +82,9 @@ sadfsfs
     }
   }
 </script>
+
+<style scoped>
+  .abc {
+    background-color: yellow;
+  }
+</style>

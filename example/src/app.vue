@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import markdown from './markdown.md'
+import markdown from './markdown.vue'
 import 'highlight.js/styles/github.css'
 import 'github-markdown-css'
 

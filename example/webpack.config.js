@@ -50,5 +50,10 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  vue: {
+    loaders: {
+      md: path.resolve(__dirname, '../index.js')
+    }
+  }
 };
