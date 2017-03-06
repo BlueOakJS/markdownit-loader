@@ -1,6 +1,6 @@
 {
   "name": "markdownit-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Webpack loader to translate markdown to HTML using markdownit.",
   "main": "index.js",
   "scripts": {
