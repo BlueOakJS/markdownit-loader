@@ -1,34 +1,37 @@
 {
-  "name": "vue-markdown-loader",
-  "version": "0.6.1",
-  "description": "markdown file to vue component loader.",
+  "name": "markdownit-loader",
+  "version": "1.0.0",
+  "description": "Webpack loader to translate markdown to HTML using markdownit.",
   "main": "index.js",
   "scripts": {
     "dev": "cd example && webpack-dev-server --inline --hot --port 8888 --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/QingWei-Li/vue-markdown-loader.git"
+    "url": "git+https://github.com/BlueOakJS/markdownit-loader.git"
   },
   "keywords": [
-    "vue",
     "markdown",
     "webpack",
-    "loader"
+    "loader",
+    "webpack-loader",
+    "markdown-it",
+    "markdown-it-plugin"
   ],
-  "author": "qingwei-li <qingwei.li@gmail.com>",
-  "license": "WTFPL",
+  "author": "PointSource, LLC <github@pointsource.com>",
+  "contributors": [
+    "Andre Asselin <andre.asselin@pointsource.com>",
+    "qingwei-li <qingwei.li@gmail.com>"
+  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/QingWei-Li/vue-markdown-loader/issues"
+    "url": "https://github.com/BlueOakJS/markdownit-loader/issues"
   },
-  "homepage": "https://github.com/QingWei-Li/vue-markdown-loader#readme",
+  "homepage": "https://github.com/BlueOakJS/markdownit-loader#readme",
   "dependencies": {
     "highlight.js": "^9.4.0",
     "loader-utils": "^0.2.15",
     "markdown-it": "^6.0.5"
-  },
-  "peerDependencies": {
-    "vue-loader": ">=10.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
