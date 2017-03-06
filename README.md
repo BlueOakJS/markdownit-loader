@@ -1,96 +1,76 @@
-# vue-markdown-loader
+# markdownit-loader
 
-> Convert Markdown file to Vue Component using markdown-it.
-
-**Supports both Vue 1.x and 2.0**
-
-## Example
-https://github.com/mint-ui/docs
-
-## Demo
-
-[Youku Video](http://v.youku.com/v_show/id_XMTU5NTU1OTEzNg==.html)
+> Convert Markdown file to HTML using markdown-it.
 
 ## Installation
 
 ```bash
-npm i vue-markdown-loader -D
+npm i markdownit-loader --save-dev
 ```
 
-## Feature
+## Features
 - Hot reload
-- Write vue script
-- Code highlight
+- Code highlighting using highlight.js
 
 
 ## Usage
 [Documentation: Using loaders](http://webpack.github.io/docs/using-loaders.html)
 
-`webpack.config.js` file:
+`webpack.config.js` file (webpack 2.x):
 
 ```javascript
 module.exports = {
   module: {
-    loaders: [{
+    rules: [{
       test: /\.md/,
-      loader: 'vue-markdown-loader'
+      loader: 'markdownit-loader'
     }]
   }
 };
 ```
 
-## Options
+### Passing options to markdown-it
 
-reference [markdown-it](https://github.com/markdown-it/markdown-it#init-with-presets-and-options)
+See [markdown-it](https://github.com/markdown-it/markdown-it#init-with-presets-and-options) for a complete list of possible options.
+
 ```javascript
-{
-  vueMarkdown: {
-    // markdown-it config
-    preset: 'default',
-    breaks: true,
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.md/,
+        use: [
+          { loader: 'raw-loader' },
+          {
+            loader: 'markdownit-loader',
+            options: {
+              // markdown-it config
+              preset: 'default',
+              breaks: true,
 
-    preprocess: function(markdownIt, source) {
-      // do any thing
+              preprocess: function(markdownIt, source) {
+                // do any thing
 
-      return source
-    },
+                return source
+              },
 
-    use: [
-      /* markdown-it plugin */
-      require('markdown-it-xxx'),
+              use: [
+                /* markdown-it plugin */
+                require('markdown-it-xxx'),
 
-      /* or */
-      [require('markdown-it-xxx'), 'this is options']
+                /* or */
+                [require('markdown-it-xxx'), 'this is options']
+              ]
+            }
+          }
+        ]
+      }
     ]
   }
-}
+};
 ```
 
 Or you can customize markdown-it
-```javascript
-var markdown = require('markdown-it')({
-  html: true,
-  breaks: true
-})
-
-markdown
-  .use(plugin1)
-  .use(plugin2, opts, ...)
-  .use(plugin3);
-
-module.exports = {
-  module: {
-    loaders: [{
-      test: /\.md/,
-      loader: 'vue-markdown-loader'
-    }]
-  },
-
-  vueMarkdown: markdown
-};
-```
-
-webpack 2.x
 
 ```javascript
 var markdown = require('markdown-it')({
@@ -108,8 +88,13 @@ module.exports = {
     rules: [
       {
         test: /\.md/,
-        loader: 'vue-markdown-loader',
-        options: markdown
+        use: [
+          { loader: 'raw-loader' },
+          {
+            loader: 'markdownit-loader',
+            options: markdown
+          }
+        ]
       }
     ]
   }
