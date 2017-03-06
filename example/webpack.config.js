@@ -8,52 +8,59 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
-  resolveLoader: {
-    root: path.join(__dirname, '../node_modules'),
+  resolve: {
+    modules: [
+      path.join(__dirname, '../node_modules')
+    ],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js'
+    }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            md: path.resolve(__dirname, '../index.js') + '?a=7'
+          }
+        }
       },
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.md$/,
-        loader: path.resolve(__dirname, '../index.js')
+        use: [
+          { loader: 'raw-loader' },
+          {
+            loader: path.resolve(__dirname, '../index.js')
+          }
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
-        loader: 'file',
+        loader: 'file-loader',
         query: {
           name: '[name].[ext]?[hash]'
         }
       }
     ]
   },
-  babel: {
-    presets: ['es2015']
-  },
   devServer: {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#eval-source-map',
-  vue: {
-    loaders: {
-      md: path.resolve(__dirname, '../index.js')
-    }
-  }
+  devtool: '#eval-source-map'
 };
