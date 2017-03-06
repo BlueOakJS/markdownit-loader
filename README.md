@@ -159,5 +159,5 @@ Incorrect
 
 
 ## License
-WTFPL
+MIT
 
