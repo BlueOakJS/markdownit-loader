@@ -56,10 +56,10 @@ module.exports = {
 
               use: [
                 /* markdown-it plugin */
-                require('markdown-it-xxx'),
+                'markdown-it-xxx',
 
                 /* or */
-                [require('markdown-it-xxx'), 'this is options']
+                ['markdown-it-xxx', 'this is options']
               ]
             }
           }
