@@ -142,6 +142,9 @@ Incorrect
 </script>
 ```
 
+## Changelog
+
+- 2.0.0: Changed how plugins are passed to markdown-it (breaking API change) to fix an issue with vue-loader (THANKS [Pooya Parsa](https://github.com/pi0))
 
 ## License
 MIT
